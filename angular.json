@@ -30,6 +30,7 @@
               }
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.less"
             ],
             "server": "src/main.server.ts",
@@ -64,6 +65,7 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          
           "configurations": {
             "production": {
               "buildTarget": "study_plus:build:production"
@@ -99,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "89dc5a97-a81e-4d14-8cb7-ae1231e0fdac"
   }
 }

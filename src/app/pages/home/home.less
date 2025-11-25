@@ -1,0 +1,179 @@
+@import "../../../styles.less";
+
+.divider{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(100,100,100);
+    opacity: .4;
+    margin: 1rem 0;
+}
+
+.signinBtn{
+    background-color: @secundary-color;
+    color: @dark-color;
+    padding: .8rem 1.2rem;
+    border-radius: .6rem;
+    transition: .3s;
+    cursor: pointer;
+    display: inline-block;
+
+    &:hover{
+        color: @white-color;
+        background-color: @secondary-color-hover;
+    }
+}
+
+#heroSection{
+    display: flex;
+    align-items: center;
+
+    
+
+    div{
+        width: 50%;
+        h1{
+            color: @main-color;
+            font-size: 2em;
+        }
+        p{
+            opacity: .75;
+            margin-bottom: 25px;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        
+    }
+
+    img{
+        width: 50%;
+        opacity: .75;
+    }
+}
+
+#cardSection{
+    display: flex;
+    width: 100%;
+     justify-content: center;
+    flex-wrap: wrap;
+    
+    app-card{    
+        width: 24%;
+        margin: 0 4.5% 3rem;      
+    }
+}
+
+#mocksSection{
+    text-align: center;
+
+    h2{
+        font-weight: 600;
+        color: @main-color;
+        font-size: 1.8em;
+    }
+
+    img{
+        max-width: 500px;
+        width: 55%;
+        margin: 2rem 0;
+    }
+}
+
+#benefitsSection{
+
+    .row{
+        display: flex;
+        align-items: center;
+
+        div{
+            width: 70%;
+            h3{
+                color:@main-color
+            }
+            p{
+                color: rgb(100,100,100);
+            }
+        }
+        img{
+            width: 30%;
+            filter: drop-shadow(0 0 10px @main-color);
+        }
+
+        &:nth-of-type(2n){
+            flex-direction: row-reverse;
+
+            div h3{
+                color: @secundary-color;
+            }
+            img{
+                filter: drop-shadow(0 0 10px @secundary-color);
+            }
+        }
+    }
+}
+
+#callSection{
+    margin: 2rem 0;
+
+
+    .callContainer{
+        background-color: @main-color;
+        padding: 1rem;
+        border-radius: 1rem;
+        width: 85%;
+        max-width: 850px;
+        margin: 0 auto;
+        display: flex;
+        position: relative;
+        filter: drop-shadow(0 0 10px @main-color);
+
+        .callText{
+            color: @white-color;
+            width: 50%;
+            
+            h3,p{
+                line-height: 2.5rem;
+            }
+
+            h3{
+                font-size: 1.8em;
+                font-weight: 600;
+                color: @empashis-color;
+            }
+            p{
+                color: rgb(220,220,220);
+            }
+
+            a{
+                margin: 2rem 0 ;
+            }
+        }
+
+        .callList{
+            background-color: @white-color;
+            height: 100%;
+            width: 55%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-top-right-radius: inherit;
+            border-bottom-right-radius: inherit;
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+            padding-left: 20%;
+            display: flex;
+            align-items: center;
+            
+            ul{
+                display: inline-block;
+                font-size: 1.2em;
+                color: rgb(70,70,70);
+                text-transform: capitalize;
+                li{
+                    line-height: 2rem;
+                }
+            }
+        }
+    }
+}
+

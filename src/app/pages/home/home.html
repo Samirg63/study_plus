@@ -1,0 +1,76 @@
+<section id="heroSection">
+    <div>
+        <h1 class="">Bem vindo(a) ao Study+</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod nobis impedit at, nulla reiciendis iure deleniti laudantium fuga sint exercitationem deserunt ipsam ad assumenda neque fugit, soluta dolorum quos velit.</p>
+        <a routerLink="auth/signin" class="signinBtn">Get Started</a>
+    </div>
+    <img src="/assets/image3.png" alt="">
+</section>
+
+<div class="divider"></div>
+
+<section id="cardSection">
+    @for(card of cardsInfo; track $index){
+
+        <app-card [color]="card.color" [title]="card.title" [description]="card.description" [icon]="card.icon" />
+    }
+    
+</section>
+
+<div class="divider"></div>
+
+<section id="mocksSection">
+    <h2>Use anywhere and anytime!</h2>
+    <img src="/assets/devices-mock.png" alt="">
+</section>
+
+<div class="divider"></div>
+
+<section id="benefitsSection">
+
+    <div class="row">
+        <div>
+            <h3>Benefit 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto enim saepe ratione quia ex eaque provident similique, corporis officia reiciendis eveniet. Excepturi illo placeat ea libero perferendis ipsum blanditiis odit.</p>
+        </div>
+        <img src="/assets/image2.png" alt="">
+    </div>
+    <div class="row">
+        <div>
+            <h3>Benefit 2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto enim saepe ratione quia ex eaque provident similique, corporis officia reiciendis eveniet. Excepturi illo placeat ea libero perferendis ipsum blanditiis odit.</p>
+        </div>
+        <img src="/assets/image1.png" alt="">
+    </div>
+    <div class="row">
+        <div>
+            <h3>Benefit 3</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto enim saepe ratione quia ex eaque provident similique, corporis officia reiciendis eveniet. Excepturi illo placeat ea libero perferendis ipsum blanditiis odit.</p>
+        </div>
+        <img src="/assets/image4.png" alt="">
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="callSection">
+
+    <div class="callContainer">
+        <div class="callText">
+            <h3>Ready to get started?</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <a routerLink="auth/signin" class="signinBtn">Get Started</a>
+        </div>
+        <div class="callList">
+            <ul>
+                <li>reason 1</li>
+                <li>reason 2</li>
+                <li>reason 3</li>
+                <li>reason 4</li>
+                <li>reason 5</li>         
+            </ul>
+        </div>
+    </div>
+
+</section>
+

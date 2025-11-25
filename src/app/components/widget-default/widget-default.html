@@ -1,0 +1,14 @@
+<section id="container" >
+    <button [matMenuTriggerFor]="addWidget"  [style.backgroundColor]="themeColor!.default" (mouseover)="hoverHandler($event)" (mouseout)="unHoverHandler($event)">
+        +
+    </button>
+</section>
+
+<mat-menu #addWidget="matMenu" yPosition="below" xPosition="after">
+    <ul>
+        <li>Docs</li>
+        <li>To do</li>
+        <li>Lembrete</li>
+        <li>Cards</li>
+    </ul>
+</mat-menu>

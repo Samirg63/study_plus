@@ -1,0 +1,96 @@
+@import url('../../../styles.less');
+
+.filler{
+    height: 100vh;
+    width: 100vw;
+}
+
+.error{
+    padding-bottom: .5rem;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.container{
+    padding: 2rem;
+    display: inline-block;
+    border: 2px solid @dark-color;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 1.5rem;
+    background-color: rgba(230,230,230,.75);
+    
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    h3{
+        font-size: 2em;
+        text-transform: uppercase;
+    }
+
+    p{
+        color: rgb(40,40,40);
+        margin-top: .5rem;
+    }
+}
+
+form{
+    text-align: center;
+
+    input, mat-form-field{width: 100% !important;}
+    
+    //show hint when get errors
+    .mat-form-field-invalid .mat-hint {
+        margin-top: 20px;
+    }
+
+    .showPassword{
+        cursor: pointer;
+    }
+
+    .passwordField{
+        padding-bottom: 4rem;
+
+        .marked{
+            text-decoration:line-through ;
+        }
+    }
+
+    .justify{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .moreOptions{
+        text-align: left;
+
+        a{
+            color: @dark-color;
+            text-decoration: none;
+            transition: .5s;
+            &:hover{
+                color: @main-color;
+            }
+        }
+    }
+
+    &>button{
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    >p{
+        font-size: 1.1em;
+        a{color: @main-color;}
+    }
+
+    
+}

@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+
+// Variables
+@main-color: #442464;
+@secundary-color:#ffca28;
+@empashis-color:#ff9800;
+@white-color:#f0f0f0;
+@dark-color:#141414;
+
+@secondary-color-hover:#cca11f;
+
+@title-font:"Fira Sans",sans-serif;
+@default-font:"Roboto Slab",serif;
+// end Variables
+
+html,body,app-root,app-dashboard{
+    height: 100%;
+}
+app-root,app-dashboard{
+    display: block;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: @default-font;
+}
+
+mat-icon{
+    font-family: 'Material Icons' !important;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: @title-font;
+    font-weight: normal;
+}
+
+
+
+//Custom Classes
+
+.bold{
+    font-weight: bold;
+}
+
+.semibold{
+    font-weight: 600;
+}
+

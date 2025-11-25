@@ -1,0 +1,114 @@
+<div (click)="resetValidator()" class="filler"></div>
+<div class="center container">
+    @if (authMethod === 'signin') {
+        <div class="title">
+            <h3>Sign in</h3>
+            <p>kickstart your studies</p>
+        </div>
+        <form [formGroup]="signinData">
+            <mat-form-field [ngClass]="SigninErrors.username ? 'error' : ''">
+                <input matInput placeholder="Username*" formControlName='username' (click)="resetValidator()">
+                <mat-icon matSuffix fontIcon="person"></mat-icon>
+                @if(SigninErrors.username !== false){
+                    <mat-error>
+                        {{SigninErrors.username!.message}}
+                    </mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field [ngClass]="SigninErrors.email ? 'error' : ''">
+                <input matInput placeholder="E-mail*" formControlName='email' (click)="resetValidator()">
+                <mat-icon matSuffix fontIcon="mail"></mat-icon>
+                @if(SigninErrors.email !== false){
+                    <mat-error >
+                        {{SigninErrors.email!.message}}
+                    </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field [ngClass]="(showPasswordHints || SigninErrors.password)? 'passwordField' : ''">
+                <input 
+                matInput
+                placeholder="Password*" 
+                [type]="(showPassword)?'text' : 'password'" 
+                formControlName='password'
+                (focus)="showPasswordHints = true"
+                (blur)="showPasswordHints = false"
+                (keyup)="validatePassword()"
+                (click)="resetValidator()"
+                >
+                <button mat-icon-button matSuffix (click)="handleShowPassword()">
+                    <mat-icon [fontIcon]="(!showPassword)? 'visibility' : 'visibility_off' " class="showPassword"></mat-icon>
+                </button>
+                @if(showPasswordHints || SigninErrors.password){
+                    <mat-hint [style]="SigninErrors.password? 'color: #ba1a1a;' : 'color: rgb(60,60,60);' ">
+                        Your password must contain: <br>
+                        <span [ngClass]="passwordRequirements.hasLength ? 'marked' : ''">*More than 5 characters </span><br>
+                        <span [ngClass]="passwordRequirements.hasCapital ? 'marked' : ''">*A capital letter </span><br>
+                        <span [ngClass]="passwordRequirements.hasNumber ? 'marked' : ''">*A number</span><br>
+                        <span [ngClass]="passwordRequirements.hasSymbol ? 'marked' : ''">*A symbol(ex:%, $, # ...) </span><br>
+                    </mat-hint>             
+                }
+             
+                
+            </mat-form-field>
+
+            <mat-form-field [ngClass]="SigninErrors.confirmPassword ? 'error' : ''">
+                <input matInput placeholder="Confirm Password*" [type]="(showPassword)?'text' : 'password'" formControlName='confirmPassword' (click)="resetValidator()">
+                <button matSuffix mat-icon-button (click)="handleShowPassword()">
+                    <mat-icon [fontIcon]="(!showPassword)? 'visibility' : 'visibility_off'" class="showPassword" ></mat-icon>
+                </button>
+                @if(SigninErrors.confirmPassword !== false){
+                    <mat-error>
+                        {{SigninErrors.confirmPassword!.message}}
+                    </mat-error>
+                }
+            </mat-form-field>
+            <div class="moreOptions">
+                <mat-checkbox formControlName='terms'>I agree with the Terms of Service and Privacy Policy.</mat-checkbox>
+                @if(SigninErrors.terms !== false){
+                    <mat-error>
+                        {{SigninErrors.terms!.message}}
+                    </mat-error>
+                }
+            </div>
+            <button (click)="SubmitHandler('signin')" matButton="filled">Create your account</button>
+            <p>Already have an account? <a routerLink="/auth/login">Log in</a></p>
+        </form>
+    }@else if (authMethod === 'login') {
+        <div class="title">
+            <h3>Log in</h3>
+            <p>Welcome back! we missed you.</p>
+        </div>
+        <form [formGroup]="loginData">
+            <mat-form-field [ngClass]="LoginErrors.login? 'error':''" (click)="resetValidator()">
+                <input matInput placeholder="Username/E-mail" formControlName='login'>
+                <mat-icon matSuffix fontIcon="person"></mat-icon>
+                @if(LoginErrors.login !== false){
+                    <mat-error>{{LoginErrors.login.message}}</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field [ngClass]="LoginErrors.login? 'error':''" (click)="resetValidator()">
+                <input matInput placeholder="Password" formControlName='password' [type]="(showPassword)?'text' : 'password'">
+                <button mat-icon-button matSuffix (click)="handleShowPassword()">
+                    <mat-icon [fontIcon]="(!showPassword)? 'visibility' : 'visibility_off' " class="showPassword"></mat-icon>
+                </button>
+                @if(LoginErrors.password !== false){
+                    <mat-error>{{LoginErrors.password.message}}</mat-error>
+                }
+            </mat-form-field>
+            
+            <div class="moreOptions justify">
+                <mat-checkbox formControlName='rememberMe'>Remember Me</mat-checkbox>
+                <a href="javascript:void()">Forgot Password?</a>
+            </div>
+            <button matButton="filled" (click)="SubmitHandler('login')">
+                @if(!loading){
+                    Submit
+                }@else{
+                    <mat-spinner diameter="25"></mat-spinner>
+                }
+            </button>
+            <p>Don't have an account? <a routerLink="/auth/signin">Register</a></p>
+        </form>
+    }
+</div>
