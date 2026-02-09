@@ -5,6 +5,10 @@ import { Home } from './pages/home/home';
 import { About } from './pages/about/about';
 import { NotFound } from './pages/not-found/not-found';
 import { Auth } from './pages/auth/auth';
+import { importProvidersFrom } from '@angular/core';
+import { DropdownModule } from '@coreui/angular';
+
+importProvidersFrom(DropdownModule)
 
 
 

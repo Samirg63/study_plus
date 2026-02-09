@@ -6,7 +6,12 @@
     <div>
         <a routerLink="/">Home</a>
         <a routerLink="/about">About</a>
-        <a routerLink="/auth/login">Log in</a>
+
+        @if(isLogged){
+            <a routerLink="/dashboard">Open Dashboard</a>
+        }@else{
+            <a routerLink="/auth/login">Log in</a>
+        }
         <a routerLink="/auth/signin" class="signinBtn">Get Started</a>
     </div>
 </header>

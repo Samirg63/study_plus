@@ -1,0 +1,187 @@
+@import url('../../../styles.less');
+
+.noBorder{
+    border: 0 !important;
+}
+
+input:focus{
+    outline: 0;
+}
+
+input,textarea{
+    border: 0;
+    background: none;
+
+    &#title{
+        .placeholder({
+            color: black;
+            font-weight: bold;
+            opacity: .8;
+        })
+    }
+
+    &#description{
+        resize: vertical;
+        .placeholder({
+            color: rgb(50,50,50);
+            opacity: .8;
+        })
+    }
+}
+
+button{
+    border: 1px solid rgb(80,80,80);
+    border-radius: .3rem;
+    display: flex;
+    align-items: center;
+    padding: .1rem;
+    background-color: rgba(255,255,255,.1);
+    transition: .2s;
+
+    &:hover{
+        background-color: rgba(255,255,255,.3);
+    }
+
+    &.sendBtn{
+        background-color: @main-color;
+        color: white;
+
+        &:hover{
+            background-color: @main-color-hover !important;
+        }
+    }
+}
+
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+#container{
+    border: 1px solid rgb(80,80,80);
+    border-radius: .5rem;
+
+    &>div,form{
+        padding: .5rem;
+    }
+}
+
+#optionBtns,#actionBtns{
+
+    .dropdown-toggle::after {
+      display: none;
+    }
+
+    button:first-of-type{
+        margin-right: .1rem;
+    }
+    button:not(button:first-of-type){
+        margin: 0 .1rem;
+    }
+
+    .check{
+        margin-left: 1rem;
+    }
+
+    ul{
+        padding: .4rem;
+
+        button{
+            padding: .2rem 0;
+
+            &:hover{
+                background-color: rgba(0,0,0,.2);
+            }
+        }
+    }
+
+   
+
+    .dateDropdown{
+        min-width:300px;
+        padding: .5rem;
+        
+
+        .dropBtn{
+            width: 100%;
+            border-width: 0;
+            border-radius: 0;
+        }
+
+        .defaultDays{
+            button{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: .1s;
+                font-weight: 500;
+                padding: .4rem .1rem;
+                border-radius: .2rem;
+
+                &:hover{
+                    background-color: rgba(0,0,0,.2);
+                }
+
+                span{
+                    color: rgb(60,60,60);
+                    font-weight: 300;
+                }
+            }
+        }
+
+
+    }
+
+    .mat-mdc-card{
+        background: none !important;
+        box-shadow: none !important;
+    }
+
+    .repeatDropdown{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .repeatBtn{
+        border: 0;
+
+        &:hover{
+                background-color: rgba(0,0,0,.2);
+        }
+    }
+
+    .repeatUl{
+        min-width: 200px;
+
+        button{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgb(20,20,20);
+            padding: .5rem .3rem;
+            border-radius: .3rem !important;
+
+            span{
+                color: rgb(60,60,60);
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+#actionBtns{
+    justify-content: end;
+}
+
+
+.priorityLv1{
+    color: #cc0404;
+}
+.priorityLv2{
+    color: #c48c14;
+}
+.priorityLv3{
+    color: #048444;
+}

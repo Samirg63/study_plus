@@ -17,3 +17,14 @@ export interface IEmailAuthData extends IAuthBase{
     email:string,
     username?:never
 }
+
+export interface ITaskSingle{
+    title:string,
+    description:string,
+    date:string,
+    priority:number,
+    isCompleted:boolean,
+    repeat:boolean,
+    tags:number[],
+    linkedTo:false | string
+}

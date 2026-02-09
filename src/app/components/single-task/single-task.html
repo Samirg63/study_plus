@@ -1,0 +1,30 @@
+<!-- [style.borderColor]="priorityColors[taskInfo.priority].color" -->
+
+<div class="flex container">
+    <div (click)="dotHandler()" class="dot" [class.checked]="(taskInfo.isCompleted)? true : false" [class]="priorityClasses[taskInfo.priority-1]">
+        <mat-icon fontIcon="check"></mat-icon>
+    </div>
+    <div class="info">
+        <div class="title">
+            <h6>{{taskInfo.title}}</h6>
+            <span class="space">-</span>
+            <div id="tags">
+                @for(tag of taskInfo.tags;track $index){
+                    @if($index < 2){
+                        <span class="tagSingle" [style.backgroundColor]="tags[tag].color">#{{tags[tag].name}}</span>
+                    }
+                }
+            </div>
+
+        </div>
+        
+        <p>{{taskInfo.description}}</p>
+
+        <div class="addons">
+            @if(taskInfo.repeat){
+                <mat-icon fontIcon="autorenew"></mat-icon>
+            }
+            <p class="link">{{(taskInfo.linkedTo) ? taskInfo.linkedTo : "No linked project"}}</p>
+        </div>
+    </div>
+</div>

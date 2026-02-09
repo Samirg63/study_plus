@@ -1,12 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component,afterNextRender } from '@angular/core';
 import { Auth as AuthService } from '../../services/auth/auth';
 import { inject } from '@angular/core';
-import { OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
+import {MatMenuModule} from '@angular/material/menu';
 import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
+import { Router } from '@angular/router';
 
 
 //Components
@@ -14,16 +13,17 @@ import { WidgetDefault } from '../../components/widget-default/widget-default';
 import { DashNavbar } from '../../components/dash-navbar/dash-navbar';
 import { Sidenav } from '../../components/sidenav/sidenav';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { Calendar } from '../../components/calendar/calendar';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [MatIconModule,WidgetDefault,MatSidenavModule,DashNavbar,Sidenav,MatMenuModule,MatButtonModule],
+  imports: [MatIconModule,WidgetDefault,MatSidenavModule,DashNavbar,Sidenav,MatMenuModule,MatButtonModule,Calendar],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.less',
   
 })
 
-export class Dashboard implements OnInit{
+export class Dashboard{
 
   AuthService = inject(AuthService)
   platformId = inject(PLATFORM_ID)
@@ -33,14 +33,19 @@ export class Dashboard implements OnInit{
   public rightArrow:boolean= true;
   public isSidenavOpen:boolean = false;
 
-  setIsSidenavOpen(event:boolean){
-    this.isSidenavOpen = event
+  constructor(
+    private router:Router
+  ){
+    afterNextRender(async()=>{
+      
+      if(!await this.AuthService.checkLogin()){
+        this.router.navigateByUrl('/auth');
+      }
+    })
   }
 
-  ngOnInit(): void {
-    if(isPlatformBrowser(this.platformId)){
-      this.AuthService.checkLogin()
-    }
+  setIsSidenavOpen(event:boolean){
+    this.isSidenavOpen = event
   }
 
   rightScroll(){

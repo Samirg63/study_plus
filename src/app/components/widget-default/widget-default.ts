@@ -1,13 +1,25 @@
 
-import { Component, input} from '@angular/core';
-import {MatMenuModule} from '@angular/material/menu';
+import { Component} from '@angular/core';
+import {
+  DropdownComponent,
+  DropdownItemDirective,
+  DropdownMenuDirective,
+  DropdownToggleDirective
+} from '@coreui/angular';
+
 
 
 
 
 @Component({
   selector: 'app-widget-default',
-  imports: [MatMenuModule],
+  imports: [
+    DropdownComponent,
+  DropdownItemDirective,
+  DropdownMenuDirective,
+  DropdownToggleDirective
+],
+  standalone:true,
   templateUrl: './widget-default.html',
   styleUrl: './widget-default.less'
 })

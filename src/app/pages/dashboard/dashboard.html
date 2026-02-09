@@ -1,13 +1,4 @@
-<div class="arrows">
-    <div (click)="leftScroll()" class="singleArrow" [class]="(!leftArrow || isSidenavOpen)?  'disabled': '' ">
-        <mat-icon style="margin-left: 6px;">arrow_back_ios</mat-icon>    
-    </div> 
-    <div (click)="rightScroll()" class="singleArrow" [class]="(!rightArrow || isSidenavOpen) ? 'disabled': '' ">
-        <mat-icon>arrow_forward_ios</mat-icon>
-        
-    </div>
-    
-</div>
+
 <mat-sidenav-container>
     <mat-sidenav id="sidenav" mode="over" [opened]="isSidenavOpen" (closed)="setIsSidenavOpen(false)">
         <app-sidenav></app-sidenav>      
@@ -15,6 +6,8 @@
     <mat-sidenav-content>
         <app-dash-navbar (isSidenavOpen)="setIsSidenavOpen($event)" [sidenavStatus]="isSidenavOpen"></app-dash-navbar>
         <div class="flex">
+            <app-calendar></app-calendar>
+            
             <section id="dashboard" class="page" style="background-color: #442464;">
                 
                     <div class="panel">
@@ -29,9 +22,19 @@
                     </div> 
             </section>
 
-            <section  class="page" style="background-color: #442464;">
-                
-            </section>
+            
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
+
+<div id="arrows">
+    <div  (click)="leftScroll()" class="singleArrow leftArrow" [class]="(!leftArrow || isSidenavOpen)?  'disabled': '' ">
+        <mat-icon style="margin-left: 6px;">arrow_back_ios</mat-icon>    
+    </div> 
+    
+    <div  (click)="rightScroll()" class="singleArrow rigthArrow" [class]="(!rightArrow || isSidenavOpen) ? 'disabled': '' ">
+        <mat-icon>arrow_forward_ios</mat-icon>
+        
+    </div>
+</div>
+    

@@ -1,0 +1,169 @@
+@import url('../../../styles.less');
+
+.container{
+    border: 1px solid rgb(70,70,70);
+    border-radius: .5rem;
+    padding: .5rem;
+    background-color: rgba(255,255,255,.1);
+    margin: .8rem 0;
+    transition: .1s;
+    cursor: pointer;
+
+    &:hover{
+        box-shadow:5px 5px 5px rgba(0,0,0,.5);
+    }
+
+    .info{
+    line-height: .8rem;
+    margin-left: .5rem;
+
+    h6,p{
+        margin-bottom: .1rem;
+    }
+
+    h6{
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    p{
+        color: rgb(30,30,30);
+    }
+
+    .title{
+        display: flex;
+        align-items: center;
+
+        .space{
+            margin: 0 .2rem;
+        }
+
+        .tagSingle{
+            font-size: .8em;
+            opacity: .8;
+            margin: 0 .1rem;
+            padding: .1rem .2rem;
+            border-radius: .2rem;
+            color: @white-color;
+        }
+    }
+
+    .addons{
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+
+        mat-icon{
+            font-size: 1em;
+            width: 1em;
+            height: 1em;
+            display: inline;
+            color: #04442C;
+            margin-right: .2rem;
+        }
+
+        .link{
+            color: rgb(80,80,80);
+            margin-bottom: 0 !important;
+        }
+    }
+
+    
+}
+
+    
+
+    .dot{
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1px solid;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    transition: .2s;
+    
+    
+
+    mat-icon{
+        font-size: .8rem;
+        opacity: 0;
+        transition: .2s;
+        display: inline;
+    }
+
+    &:not(.checked):hover{
+        mat-icon{
+            opacity: 1;
+            color: rgb(20,20,20);
+        }
+    }
+    }
+
+    
+}
+
+.flex{
+    display: flex;
+    align-items: start;
+}
+
+
+
+
+
+
+
+//Control classes
+
+
+
+.priority1{
+    border-color: #CC0404;
+    border-width: 2px;
+    
+
+    mat-icon{
+        color:#CC0404 !important;
+        margin-top: -1px;
+    }
+}
+
+.priority2{
+    border-color: #C48C14;
+    border-width: 2px;
+
+    mat-icon{
+        color:#C48C14 !important;
+        margin-top: -1px;
+    }
+}
+
+.priority3{
+    border-color: #048444;
+    border-width: 2px;
+    
+    &:hover{
+        background-color: rgba(0,0,0,.7);
+    }
+
+    mat-icon{
+        color:#048444 !important;
+        margin-top: -1px;
+    }
+}
+
+.priority4{
+    border-color: rgb(50,50,50);
+}
+
+.checked{
+    background-color: @main-color !important;
+    border-color: rgb(50,50,50);
+    border-width: 1px;
+
+    mat-icon{
+        opacity: 1 !important;
+        color:@white-color !important;
+    }
+
+}

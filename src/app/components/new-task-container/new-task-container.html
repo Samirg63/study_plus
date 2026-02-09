@@ -1,0 +1,71 @@
+<div id="container">
+    <form>
+            <input id="title" type="text" name="title" placeholder="Title">
+            <textarea id="description" type="text" name="description" placeholder="Description"></textarea>
+    </form>
+    <div id="optionBtns" class="flex">
+        <c-dropdown direction="dropend" [autoClose]="'outside'">
+            <button cDropdownToggle (click)="resetDatepicker()"><mat-icon aria-label="Date" fontIcon="calendar_today"></mat-icon></button>
+            <div cDropdownMenu class="dateDropdown" >
+                <div class="defaultDays">
+                    <button class="dropBtn" cDropdownItem>Amanhã <span>seg</span></button>
+                    <button class="dropBtn" cDropdownItem>Meio da semana <span>qua</span></button>
+                    <button class="dropBtn" cDropdownItem>Fim de semana <span>Dom</span></button>
+                    <button class="dropBtn" cDropdownItem>Próxima semana <span>Dom Dez 29</span></button>
+                </div>
+                <hr>
+                <!-- DatePicker -->
+                <mat-card>
+                    <mat-calendar cDropdownClose [(selected)]="selected"></mat-calendar>
+                </mat-card>
+                
+                <c-dropdown class="repeatDropdown" direction="dropend">
+                    <button class="repeatBtn" cDropdownToggle><mat-icon fontIcon="autorenew"></mat-icon> <span>Repeat</span></button>
+                    <ul cDropdownMenu class="repeatUl">
+                        <button class="dropBtn" cDropdownItem>Todo dia</button>
+                        <button class="dropBtn" cDropdownItem>Toda semana <span>seg</span></button>
+                        <button class="dropBtn" cDropdownItem>Todo dia util <span>seg-sex</span></button>
+                        <button class="dropBtn" cDropdownItem>Todo mês <span>dia 22</span></button>
+                        <button class="dropBtn" cDropdownItem>Todo ano <span>dez 22</span></button>
+                    </ul>
+                </c-dropdown>
+            </div>
+        </c-dropdown>     
+
+
+        <c-dropdown direction="dropend">
+            <button cDropdownToggle><mat-icon class="priorityLv{{data.priority}}" aria-label="Priority" fontIcon="flag"></mat-icon></button>
+        
+            <ul cDropdownMenu>
+                <button (click)="setPriority(1)" class="noBorder" cDropdownItem><mat-icon style="color: #cc0404;" aria-label="Priority" fontIcon="flag"></mat-icon><span>Prioridade 1</span>
+                    @if(data.priority === 1){
+                        <mat-icon style="color: #EC6404;" class="check" aria-label="Priority" fontIcon="check"></mat-icon>
+                    }
+                </button>
+                <button (click)="setPriority(2)" class="noBorder" cDropdownItem><mat-icon style="color: #c48c14;" aria-label="Priority" fontIcon="flag"></mat-icon><span>Prioridade 2</span>
+                    @if(data.priority === 2){
+                        <mat-icon style="color: #EC6404;" class="check" aria-label="Priority" fontIcon="check"></mat-icon>
+                    }
+                </button>
+                <button (click)="setPriority(3)" class="noBorder" cDropdownItem><mat-icon style="color: #048444;" aria-label="Priority" fontIcon="flag"></mat-icon><span>Prioridade 3</span>
+                    @if(data.priority === 3){
+                        <mat-icon style="color: #EC6404;" class="check" aria-label="Priority" fontIcon="check"></mat-icon>
+                    }
+                </button>
+                <button (click)="setPriority(4)" class="noBorder" cDropdownItem ><mat-icon aria-label="Priority" fontIcon="flag"></mat-icon> <span>Prioridade 4</span>
+                    @if(data.priority === 4){
+                        <mat-icon style="color: #EC6404;" class="check" aria-label="Priority" fontIcon="check"></mat-icon>
+                    }
+                </button>
+            </ul>
+        </c-dropdown>
+        
+        <button><mat-icon aria-label="More options" fontIcon="more_horiz"></mat-icon></button>
+    </div>
+    <hr>
+    <div id="actionBtns" class="flex">
+        <button (click)="closeContainerHandler()"><mat-icon fontIcon="close"></mat-icon></button>
+        <button (click)="createTask()" class="sendBtn"><mat-icon fontIcon="send"></mat-icon></button>
+        
+    </div>
+</div>

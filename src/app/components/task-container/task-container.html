@@ -1,0 +1,20 @@
+<div id="singleTask">
+    <div id="date">
+        {{month.slice(0,3)}} - {{day}} &middot; {{weekDay}} <span>0</span>
+    </div>
+
+    <div id="tasksContainer">
+    <app-single-task [taskInfo]="task" ></app-single-task>
+
+        <div>
+                <app-new-task-container [hidden]="isCreatingTask ? false : true" (closeContainer)="handleNewTaskContainer()"></app-new-task-container>
+            
+                <button [hidden]="isCreatingTask ? true : false"
+                (click)="handleNewTaskContainer()" class="new">
+                    <span class="icon" style="color: #442464;">+</span>
+                    <span class="text">Adicionar tarefas</span>
+                </button>
+            
+        </div>
+    </div>
+</div>

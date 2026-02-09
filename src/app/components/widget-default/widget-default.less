@@ -1,3 +1,5 @@
+
+
 section{
     -ms-grid-row-span: 1;
     -ms-grid-column-span: 1;
@@ -5,7 +7,11 @@ section{
     justify-content: center;
     align-items: center;
 
-    button{
+    .dropdown-toggle::after {
+      display: none;
+    }
+
+    #toggler{
         width: 80px;
         height: 80px;
         border-radius: 20px;
@@ -17,9 +23,18 @@ section{
         border: 0;
         font-weight: 200;
         font-size: 3em;
-    }
-}
 
-mat-menu ul{
-    margin-left: -18px;
+    }
+
+    ul{
+        top: .5rem !important;
+        
+        button{
+            transition: .2s;
+
+            &:hover{
+                background-color: rgb(200,200,200);
+            }
+        }
+    }
 }

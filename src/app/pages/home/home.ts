@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Card } from '../../components/card/card';
 import { RouterLink } from '@angular/router';
 

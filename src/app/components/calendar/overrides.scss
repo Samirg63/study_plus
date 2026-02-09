@@ -1,0 +1,6 @@
+@use '@angular/material' as mat;
+
+@include mat.form-field-overrides((
+    outlined-container-shape: 25px,
+    outlined-outline-width:0
+  ));

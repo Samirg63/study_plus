@@ -1,0 +1,47 @@
+<section class="page" style="background-color: #442464;">
+    <div id="title">
+        <h3>Suas tarefas</h3>
+            <div class="flex">
+                <div class="align-items">
+     
+                    <button class="datePickerToggler" (click)="openDatePicker()">
+                        <span><b>{{actMonth}}</b> {{actYear}} &darr;</span>
+                    </button>
+                    <div class="align-items">
+                        <mat-form-field appearance="outline" style="opacity: 0;pointer-events: none;">
+                            <input matInput [matDatepicker]="picker" (dateChange)="datePickerHandler($event)">
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div id="selector">
+                    <button (click)="previousPage()">
+                        <span><</span>
+                    </button>
+                    <div class="vr"></div>
+
+                    <button (click)="reset()">
+                        <span>Hoje</span>
+                    </button>
+
+                    <div class="vr"></div>
+                    <button (click)="nextPage()">
+                        <span>></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        
+    
+    <hr>
+
+    <div id="tasks">
+
+        @for(today of datesArr; track today){
+            <app-task-container [events]="triggerCloseContainers.asObservable()" [today]="today" (closeAllNewTaks)="closeAllNewTaskContainersHandler()"></app-task-container>
+            
+        }
+    </div>
+</section>

@@ -1,14 +1,15 @@
-<section id="container" >
-    <button [matMenuTriggerFor]="addWidget"  [style.backgroundColor]="themeColor!.default" (mouseover)="hoverHandler($event)" (mouseout)="unHoverHandler($event)">
-        +
-    </button>
+<section>
+    <c-dropdown direction="center">    
+        <button id="toggler" cDropdownToggle  [style.backgroundColor]="themeColor!.default" (mouseover)="hoverHandler($event)" (mouseout)="unHoverHandler($event)">
+            +
+        </button>
+        
+        <ul cDropdownMenu>
+            <button cDropdownItem>Docs</button>
+            <button cDropdownItem>To do</button>
+            <button cDropdownItem>Lembrete</button>
+            <button cDropdownItem>Cards</button>
+        </ul>
+    </c-dropdown>
 </section>
-
-<mat-menu #addWidget="matMenu" yPosition="below" xPosition="after">
-    <ul>
-        <li>Docs</li>
-        <li>To do</li>
-        <li>Lembrete</li>
-        <li>Cards</li>
-    </ul>
-</mat-menu>
+    

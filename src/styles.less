@@ -9,6 +9,7 @@
 @dark-color:#141414;
 
 @secondary-color-hover:#cca11f;
+@main-color-hover:#5f16a8;
 
 @title-font:"Fira Sans",sans-serif;
 @default-font:"Roboto Slab",serif;
@@ -49,3 +50,22 @@ h1,h2,h3,h4,h5,h6{
     font-weight: 600;
 }
 
+//mixin
+
+.placeholder(@styles) {
+  &::-webkit-input-placeholder {
+    @styles();
+  }
+  &:-moz-placeholder { /* Firefox 4-18 */
+    @styles();
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    @styles();
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    @styles();
+  }
+  &::placeholder { /* Modern browsers */
+    @styles();
+  }
+}
